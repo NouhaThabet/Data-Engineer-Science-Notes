@@ -36,7 +36,7 @@ Records generated every time you make a purchase at an online or physical store 
 
 
 
-![](Different-types-of-data-domain.png)
+![](Img/Different-types-of-data-domain.png)
 
 
  
