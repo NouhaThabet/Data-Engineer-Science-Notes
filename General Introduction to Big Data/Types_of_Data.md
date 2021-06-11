@@ -29,8 +29,6 @@ By contrast, unstructured data is often referred to as "messy" data, because it 
 Unstructured data is the most widespread type of data. The IDC reports that almost 90% of data today is unstructured. Today, many organizations struggle with trying to make sense of unstructured data, especially when trying to use it for business insights. That's where different fields of artificial intelligence become an important part of the data analysis process.
 
 
-![](Img/img5.png)
-
 
 
 ### 3 - Semi-Structured Data : 
@@ -40,5 +38,11 @@ Semi-structured data fits somewhere in-between structured and unstructured data.
 
 
 A good example of semi-structured data is HTML code. If you’ve ever right-clicked in your browser and selected “inspect” or “inspect element” you’ve seen an example of this. Although you are not restricted to how much information you want to collect or what kind of information you want to collect, there is still a defined way to express data.
+
+
+
+
+![](Img/img5.png)
+
 
 
