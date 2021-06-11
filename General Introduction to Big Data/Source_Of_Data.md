@@ -14,3 +14,29 @@ The three main sources of data are :
 Now I will explain how data comes from each source above. 
 
 ### Human generated data : 
+
+Humans create and share data using social media posts, emails, spreadsheets, presentations, audio files and video files. 
+
+Social media is a leading force in the propagation of human-generated data. At Facebook and According to Forbes, 1.5 billion people are active on Facebook every day, 510,000 comments are posted every minute, and five new profiles are created every second. 
+
+
+
+### Machine generated data : 
+
+Data generated from machines that doesn’t rely on active human intervention like sensors on vehicles, industrial machine, security cameras, satellites, medical devices and personal tools such as smartphone apps or fitness trackers. These sensors Depend on the model that they have, they might generate records for your heart rate, your geographic location, the calories you burn, and more. 
+
+
+### Organization generated data : 
+
+Records generated every time you make a purchase at an online or physical store - things like unique customer numbers, the items you purchased, the date and time you purchased items and how many of each item you purchased.
+
+
+
+
+
+
+
+![](Different-types-of-data-domain.png)
+
+
+ 
