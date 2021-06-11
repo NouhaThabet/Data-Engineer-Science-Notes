@@ -13,7 +13,7 @@ A real-world example of batch processing is how telecommunication companies proc
 To do this they process batch data - the phone calls you’ve made, text messages you've sent, and any additional charges you’ve incurred through that billing cycle, 
 to generate your bill. They process that batch data in a batch job. 
 
-![](Img/Batch.PNG)
+![](Img/batch.PNG)
 
 ### 2 - Streaming Data
 
@@ -28,4 +28,4 @@ data points per day as your heart beats. Every time your heart beats new data is
 average heartbeat for the day, that average must be constantly updated with the new numbers from the incoming stream of data.
 
 
-![](Img/Streaming.png)
+![](Img/streaming.PNG)
