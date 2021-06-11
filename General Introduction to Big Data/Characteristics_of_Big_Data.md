@@ -18,4 +18,6 @@ Just to put that into perspective, the computer that I'm using has 256GB of stor
 Organizations working with big data find ways to process, store and analyze data coming in at massive volumes that surpass traditional methods process and store data.
 
 
-![](Different-types-of-data-domain.png)
+![](5-vs.png)
+![](Img/Different-types-of-data-domain.png)
+
