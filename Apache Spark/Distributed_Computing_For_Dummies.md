@@ -7,7 +7,7 @@ Now we will explain the idea behind Distributed Computing.
 
 Imagine that you and your colleagues have been asked to guess how many M&Ms are in a big tub and told you whoever finished counting them first wins a prize. 
 
-![](Img/dist0.jpeg)
+![](Img/dist0.jpg)
 
 
 You might line the M&Ms up and count them one by one to finish get their exact quantity. This method will give you an accurate count but you will spen a very long time to do it.
