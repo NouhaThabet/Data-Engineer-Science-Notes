@@ -42,6 +42,16 @@ When it comes time to actually run a Spark Application, we request resources fro
 this can include a place torun the Spark driver or might be just resources for the executors for our Spark Application.
 
 
+### Spark Execution Model
+Spark is a distributed processing engine, and it follows the master-slave architecture. So, for every application, Spark will create one master process and multiple slave processes. In Spark terminology, the master is the driver, and the slaves are the executors. Let's try to understand it with a simple example. 
+
+<p align="center">
+  <img width="460" height="300" src="Img/SparkExecutionModel.PNG">
+</p>
+
+Suppose you are using the spark-submit utility. You execute an application A1 using spark-submit, and Spark will create one driver process and some executor processes for A1. This entire set is exclusive for the application A1.
+Now, you submit another application A2, and Spark will create one more driver process and some executor process for A2. So, for every application, Spark creates one driver and a bunch of executors. 
+
 ### Execution Modes
 An execution mode gives the power to determine where the aforementioned resources arephysically located when you go to run your application. 
 We have three modes to choose from:
@@ -50,3 +60,55 @@ We have three modes to choose from:
 - Local Mode : Start everything in a single local JVM 
 
 
+#### 1 - Cluster Mode
+Cluster mode is probably the most common way of running Spark Applications. The driver program won't run on the machine from the job submitted but it runs on the 
+cluster as a sub-process of ApplicationMaster. In cluster mode, a user submits a pre-compiled JAR, Python script, or R script to a cluster manager. The cluster manager then launches the driver process on a worker node (this node shows as a driver on the Spark Web UI of the application) inside the cluster, in addition to the executor processes. This means that the cluster manager is responsible for maintaining all Spark Application–related processes. 
+
+<p align="center">
+  <img width="460" height="300" src="Img/ClusterMode.PNG">
+</p>
+
+The advantage of this mode is running driver program in ApplicationMaster, which re-instantiate the driver program in case of driver program failure. Cluster mode is not supported in interactive shell mode i.e., saprk-shell mode. Cluster mode is used in real time production environment and also mostly used for large data sets where the job takes few mins/hrs to complete. To use this mode we have submit the Spark job using spark-submit command.
+
+In this mode we must need a cluster manager to allocate resources for the job to run. Below the cluster managers available for allocating resources:
+
+- Standalone: simple cluster manager that is embedded within Spark, that makes it easy to set up a cluster
+- Apache Mesos: a cluster manager that can be used with Spark and Hadoop MapReduce.
+- YARN: resource manager in Hadoop 2
+- Kubernetes: an open source cluster manager that is used to automating the deployment, scaling and managing of containerized applications.
+
+ 
+ Applications can be submitted to a cluster of any type using the spark-submit script :
+  ```
+  spark-submit --deploy-mode cluster --driver-memory xxxx  ........
+  ```
+This script takes care of setting up the classpath with Spark and its dependencies, and can support different cluster managers and deploy modes that Spark supports:
+ ```
+  ./bin/spark-submit \
+  --class <main-class> \
+  --master <master-url> \
+  --deploy-mode <deploy-mode> \
+  --conf <key>=<value> \
+  ... # other options
+  <application-jar> \
+  [application-arguments]
+  ```
+  
+ Some of the commonly used options are:
+ 
+    --class: The entry point for your application (e.g. org.apache.spark.examples.SparkPi)
+    --master: The master URL for the cluster (e.g. spark://23.195.26.187:7077)
+    --deploy-mode: Whether to deploy your driver on the worker nodes (cluster) or locally as an external client (client) (default: client) †
+    --conf: Arbitrary Spark configuration property in key=value format. For values that contain spaces wrap “key=value” in quotes (as shown). Multiple configurations should be passed as separate arguments. (e.g. --conf <key>=<value> --conf <key2>=<value2>)
+    application-jar: Path to a bundled jar including your application and all dependencies. The URL must be globally visible inside of your cluster, for instance, an hdfs:// path or a file:// path that is present on all nodes.
+    application-arguments: Arguments passed to the main method of your main class, if any
+
+- Terminating the current session doesn’t terminate the application. The application would be running on the cluster. You can get the status of the spark application by running ```spark-submit --status [submission ID] ```
+- Since Spark driver runs on one of the worker node within the cluster, which reduces the data movement overhead between submitting machine and the cluster.
+- For the Cloudera cluster, you should use yarn commands to access driver logs.
+- In this spark mode, the change of network disconnection between driver and spark infrastructure reduces. As they reside in the same infrastructure(cluster), It highly reduces the chance of job failure.
+    
+#### 2 - Client Mode
+
+
+#### 3 - Local Mode
