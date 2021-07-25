@@ -78,6 +78,10 @@ In this mode we must need a cluster manager to allocate resources for the job to
 - Kubernetes: an open source cluster manager that is used to automating the deployment, scaling and managing of containerized applications.
 
  
+<p align="center">
+  <img width="460" height="400" src="Img/ClusterMode1.PNG">
+</p>
+
  Applications can be submitted to a cluster of any type using the spark-submit script :
   ```
   spark-submit --deploy-mode cluster --driver-memory xxxx  ........
@@ -107,8 +111,41 @@ This script takes care of setting up the classpath with Spark and its dependenci
 - Since Spark driver runs on one of the worker node within the cluster, which reduces the data movement overhead between submitting machine and the cluster.
 - For the Cloudera cluster, you should use yarn commands to access driver logs.
 - In this spark mode, the change of network disconnection between driver and spark infrastructure reduces. As they reside in the same infrastructure(cluster), It highly reduces the chance of job failure.
-    
+- We use this mode when the client machine is far from our actual cluster then we should go for cluster mode. Because if we launch it in client mode then for executors to communicate with driver causes network latency and also if the client machine goes offline then we lose entire application.  
+
+
 #### 2 - Client Mode
+Client mode is nearly the same as cluster mode except that the Spark driver remains on the clientmachine that submitted the application. This means that the client machine is responsible formaintaining the Spark driver process, and the cluster manager maintains the executor processses.
+The main drawback of this mode is if the driver program fails entire job will fail. Client mode can also use YARN to allocate the resources. Client mode can support both interactive shell mode and normal job submission modes. But this mode gives us worst performance. In production environment this mode will never be used.
+
+- Client mode can be used when the client machine is located within the cluster. In this case we don't need to worry about any network latency and maintenance of cluster will taken with utmost important so no need to worry about failures as well.
+
+<p align="center">
+  <img width="460" height="400" src="Img/ClientMode1.PNG">
+</p>
+
+```
+spark-submit --deploy-mode client --driver-memory xxxx  ......
+```
+    
+- The default deployment mode is client mode.
+- In client mode, if a machine or a user session running spark-submit terminates, your application also terminates with status fail.
+- Using Ctrl-c after submitting the spark-submit command also terminates your application.
+- Client mode is not used for Production jobs. This is used for testing purposes.
+- Driver logs are accessible from the local machine itself.
 
 
 #### 3 - Local Mode
+Local mode is a significant departure from the previous two modes: it runs the entire SparkApplication on a single machine. It achieves parallelism through threads on that single machine.This is a common way to learn Spark, to test your applications, or experiment iteratively withlocal development. However, we do not recommend using local mode for running productionapplications.
+In this mode the driver program and executor will run on single JVM in single machine. This mode is useful for development, unit testing and debugging the Spark Jobs. But this mode has lot of limitations like limited resources, has chances to run into out memory is high and cannot be scaled up. In addition, in this mode Spark will not re-run the  failed tasks, however we can overwrite this behavior. Spark UI will be available on localhost:4040 in this mode.
+
+
+
+
+
+#### References : 
+http://www.bigdatainterview.com/what-are-deployment-modes-in-spark-client-vs-cluster-modes/
+https://spark.apache.org/docs/latest/submitting-applications.html
+https://spark.apache.org/docs/latest/cluster-overview.html
+https://sparkbyexamples.com/spark/spark-web-ui-understanding/
+https://techvidvan.com/tutorials/spark-modes-of-deployment/
