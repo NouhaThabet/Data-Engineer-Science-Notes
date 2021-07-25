@@ -30,7 +30,10 @@ responding to a user’s program or input;and analyzing, distributing, and sched
 executing code assigned to itby the driver, and reporting the state of the computation on that executor back to the driver node. Each Spark Application has its ownseparate 
 executor processes.
 
-![](Img/Application1.PNG)
+<p align="center">
+  <img width="460" height="300" src="Img/Application1.PNG">
+</p>
+
 
 - The cluster manager : The Spark Driver and Executors do not exist in a void, and this is where the cluster manager comes in. The cluster manager is responsible 
 for maintaining a cluster of machines that will run your Spark Application(s). Somewhat confusingly, a cluster manager will have its own “driver” (sometimes called 
