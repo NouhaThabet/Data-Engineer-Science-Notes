@@ -118,7 +118,10 @@ This script takes care of setting up the classpath with Spark and its dependenci
 Client mode is nearly the same as cluster mode except that the Spark driver remains on the clientmachine that submitted the application. This means that the client machine is responsible formaintaining the Spark driver process, and the cluster manager maintains the executor processses.
 The main drawback of this mode is if the driver program fails entire job will fail. Client mode can also use YARN to allocate the resources. Client mode can support both interactive shell mode and normal job submission modes. But this mode gives us worst performance. In production environment this mode will never be used.
 
-- Client mode can be used when the client machine is located within the cluster. In this case we don't need to worry about any network latency and maintenance of cluster will taken with utmost important so no need to worry about failures as well.
+In client mode, the node where the spark-submit is invoked , will act as the Spark driver. Means which is where the SparkContext will live for the lifetime of the app.
+But this node WILL NOT execute the DAG as this it is designated JUST as a driver for the spark cluster. However all the other nodes will act as executors for 
+running the job. We can track the execution of the jobs through the Web UI . 
+Client mode is rcommended when the client machine is located within the cluster. In this case we don't need to worry about any network latency and maintenance of cluster will taken with utmost important so no need to worry about failures as well.
 
 <p align="center">
   <img width="460" height="400" src="Img/ClientMode1.PNG">
@@ -127,12 +130,14 @@ The main drawback of this mode is if the driver program fails entire job will fa
 ```
 spark-submit --deploy-mode client --driver-memory xxxx  ......
 ```
-    
+ 
 - The default deployment mode is client mode.
 - In client mode, if a machine or a user session running spark-submit terminates, your application also terminates with status fail.
 - Using Ctrl-c after submitting the spark-submit command also terminates your application.
 - Client mode is not used for Production jobs. This is used for testing purposes.
 - Driver logs are accessible from the local machine itself.
+
+
 
 
 #### 3 - Local Mode
