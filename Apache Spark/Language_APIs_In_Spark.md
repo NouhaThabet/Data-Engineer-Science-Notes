@@ -2,8 +2,50 @@ Spark’s Language APIs
 -------
 
 Apache Spark is one of the most popular framework for big data analysis released in 2010 by Berkeley's AMPLab. Spark is primarily written in Scala, making it Spark’s 
-“default” language, but one of spark's selling point is the cross-language API that allows you to write Spark code in Scala, Java, Python, R or SQL. 
+“default” language, but one of spark's selling point is the cross-language API that allows you to write Spark code in Scala, Java, Python or R. These programming 
+languages are either compiled or interpreted. We will explain the difference between compiled and interpreted programming languages then we will move to define spark's programming languages. 
 
+
+Compiled vs Interpreted Language
+-------
+The main goal of both compilation and interpretation is to transform the human-readable source code into machine code that can be executed directly by a CPU, but there are some caveats to it.
+
+One of the main things we have to understand is that a programming language itself is neither compiled nor interpreted, but the implementation of a programming language is. In fact, there are many programming languages that have been implemented using both compilers and interpreters.
+
+
+### Compiled Programming Language : 
+A compiled language is a programming language which are generally compiled and not interpreted. A compiler is a program that translates statements written in a particular programming language into another language usually machine code. A standard compiler instead of translating code on the fly does all of its work ahead of execution time. It is one where the program, once compiled, is expressed in the instructions of the target machine; this machine code is undecipherable by humans. Types of compiled language – C, C++, C#, CLEO, COBOL, etc.
+
+In C++ the source code is compiled into machine code. The compilation process consists of preprocessing, compiling and linking, but the end result is either a library or an executable that can be executed directly by a CPU that the program was compiled for.
+
+##### Benefit of compiled languages: 
+The speed of execution as the executable that contains machine code can be directly executed on the target machine without any additional steps.
+
+##### Drawback of compiled languages: 
+Poor portability as programs have to be compiled for a specific CPU architecture and a long time that is required for the actual compilation.
+
+
+<p align="center">
+  <img width="460" height="400" src="Img/compiled-interpreted.png">
+</p>
+
+
+### Interpreted Programming Language : 
+An interpreted language is a programming language which are generally interpreted, without compiling a program into machine instructions. It is one where the instructions are not directly executed by the target machine, but instead read and executed by some other program. We can say that the interpreter translates programs on
+the fly instead of focusing on the whole program at once. Interpreted language ranges – JavaScript, Perl, Python, BASIC, etc.
+
+Even though interpreter could be translating source code into machine code, these days most of the interpreters work with an intermediate representation also called bytecode in most interpreted programming languages. This is because interpreting source code directly would be quite slow and most interpreted languages benefit from compiling into bytecode first that can prepare and optimise the code for further interpretation into machine code.
+ 
+##### Benefit of interpreted languages: 
+Portability as programs don’t have to be compiled for a specific CPU architecture and faster compilation process (for the language implementations that compile to bytecode).
+
+##### Drawback of interpreted languages: 
+Slower execution speed and potential for leaking source code if the non-obfuscated source code is sent to the client.
+
+
+
+Spark’s Programming Language 
+-------
 
 ### Scala : 
 Scala is a highly Scalable Language and a crossover between object-oriented and functional programming language. Scala was invented by the German Computer Scientist, 
@@ -70,4 +112,9 @@ Java is one of the oldest languages of all programming languages listed previous
 - Lack of machine learning languages.
 
 
+Comparison of four languages for Apache Spark
+-------
+Links below contains a deep comparaison between the 4 languages definied previously for Apache Spark : 
+- https://www.knowledgehut.com/blog/programming/scala-vs-python-vs-r-vs-java
+- https://mindfulmachines.io/blog/2018/6/apache-spark-scala-vs-java-v-python-vs-r-vs-sql26
 
