@@ -32,8 +32,13 @@ of a key, a value, and a timestamp. In Kafka the communication between the clien
 - Topics in Kafka are similar to tables in the database, but not containing all constraints. 
 - Topics in Kafka are always multi-subscriber; that is, a topic can have zero, one, or many consumers that subscribe to the data written to it.
 - The Kafka cluster maintains a partitioned log for each topic
--
-- 
+<p align="center">
+  <img width="460" height="300" src="Imgs/kafka-topics-partitions.PNG">
+</p>
+
+#### 2 - Partitions : 
+
+
 ### Apache Kafka Architecture : 
 
 ### Apache Kafka APIs
