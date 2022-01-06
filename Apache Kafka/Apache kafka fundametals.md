@@ -23,6 +23,17 @@ Kafka is generally used for two broad classes of applications:
 ### Apache Kafka Terminologies :
 In this section we will discuss the basic concepts of Kafka. 
 
+Kafka is run as a cluster on one or more servers that can span multiple datacenters. The cluster stores streams of records in categories called topics and each record consists
+of a key, a value, and a timestamp. In Kafka the communication between the clients and the servers is done with a simple, high-performance, language agnostic TCP protocol. This protocol is versioned and maintains backwards compatibility with older version. A Java client is provided for Kafka, but clients are available in many languages.
+
+#### 1 - Topics and logs : 
+- A topic is a category or feed name to which records are published and used to organize messages. 
+- Each topic has a name that is unique across the entire Kafka cluster. 
+- Topics in Kafka are similar to tables in the database, but not containing all constraints. 
+- Topics in Kafka are always multi-subscriber; that is, a topic can have zero, one, or many consumers that subscribe to the data written to it.
+- The Kafka cluster maintains a partitioned log for each topic
+-
+- 
 ### Apache Kafka Architecture : 
 
 ### Apache Kafka APIs
