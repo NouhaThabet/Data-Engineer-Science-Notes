@@ -32,8 +32,20 @@ of a key, a value, and a timestamp. In Kafka the communication between the clien
 - Topics in Kafka are similar to tables in the database, but not containing all constraints. 
 - Topics in Kafka are always multi-subscriber; that is, a topic can have zero, one, or many consumers that subscribe to the data written to it.
 - The Kafka cluster maintains a partitioned log for each topic
--
-- 
+<p align="center">
+  <img width="460" height="300" src="Imgs/kafka-topics-partitions.PNG">
+</p>
+
+#### 2 - Partitions : 
+- A topic is split into several parts which are known as the partitions of the topic.
+- When we create a topic we need to specify the number of partitions (the number is arbitrary and can be changed later).
+- Each partition is an ordered, immutable sequence of records that is continually appended to—a structured commit log.
+- Each message gets stored into partitions with an incremental id known as its Offset value.
+- The order of the offset value is guaranteed within the partition only and not across the partition.
+- A partition has an infinite number of offsets. 
+- The offset value always remains in an incremental state, it never goes back to an empty space. Also, the data is kept in a partition for a limited time only.
+
+
 ### Apache Kafka Architecture : 
 
 ### Apache Kafka APIs
