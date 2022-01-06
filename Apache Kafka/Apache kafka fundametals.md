@@ -11,9 +11,53 @@ The concept of publish/subscribe messaging is a pattern that is characterized by
 Instead, the publisher classifies the message somehow, and that receiver (subscriber) subscribes to receive certain classes of messages. Pub/sub systems often have a broker, a 
 central point where messages are published, to facilitate this.
 
-A streaming process is the processing of data in parallelly connected systems. This process allows that one record executes without waiting for the output of the previous record.
-Therefore, a distributed streaming platform enables the user to simplify the task of the streaming process and parallel execution. Therefore, a streaming platform in Kafka 
-works similar to an enterprise messaging system where it publishes and subscribes streams of records and as soon as the streams of records occur, it processes it.
+A streaming process is the processing of data in parallelly connected systems. This process allows that one record executes without waiting for the output of the previous record. Therefore, a distributed streaming platform enables the user to simplify the task of the streaming process and parallel execution. Therefore, a streaming platform in Kafka works similar to an enterprise messaging system where it publishes and subscribes streams of records and as soon as the streams of records occur, it processes it.
 
+Apache Kafka is a framework implementation of a software bus using stream-processing. It is a publish-subscribe messaging system which let exchanging of data between applications, servers, and processors as well. It was originally developed by LinkedIn, and later it was donated to the Apache Software Foundation and written in Scala and Java.
+Kafka can connect to external systems (for data import/export) via Kafka Connect and provides Kafka Streams, a Java stream processing library.
 
+Kafka is generally used for two broad classes of applications:
+- Building real-time streaming data pipelines that reliably get data between systems or applications
+- Building real-time streaming applications that transform or react to the streams of data
 
+### Apache Kafka Terminologies :
+In this section we will discuss the basic concepts of Kafka. 
+
+### Apache Kafka Architecture : 
+
+### Apache Kafka APIs
+Kafka have 5 majors APIs:
+- **Producer API**: Permits an application to publish streams of records to one or more topics in the kafka cluster. Below the maven demendency to use the producer. 
+```xml
+<dependency>
+	<groupId>org.apache.kafka</groupId>
+	<artifactId>kafka-clients</artifactId>
+	<version>2.0.0</version>
+</dependency>
+```
+- **Consumer API**: Allows an application to subscribe one or more topics and process the stream of records produced to them. Below the maven demendency to use the consumer. 
+```xml
+<dependency>
+	<groupId>org.apache.kafka</groupId>
+	<artifactId>kafka-clients</artifactId>
+	<version>2.0.0</version>
+</dependency>
+```
+- **Streams API**: Allows an application to effectively transform the input streams to the output streams. It permits an application to act as a stream processor which consumes an input stream from one or more topics, and produce an output stream to one or more output topics.
+```xml
+<dependency>
+	<groupId>org.apache.kafka</groupId>
+	<artifactId>kafka-streams</artifactId>
+	<version>2.0.0</version>
+</dependency>
+```
+- **Connector API**: The Connect API allows implementing connectors that continually pull from some source data system into Kafka or push from Kafka into some sink data system.
+Many users of Connect won't need to use this API directly, though, they can use pre-built connectors without needing to write any code.
+- **Admin API**: Used to manage Kafka topics, brokers and other Kafka objects.
+```xml
+<dependency>
+	<groupId>org.apache.kafka</groupId>
+	<artifactId>kafka-clients</artifactId>
+	<version>2.0.0</version>
+</dependency>
+```
