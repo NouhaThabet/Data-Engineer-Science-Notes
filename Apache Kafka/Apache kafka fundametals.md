@@ -43,7 +43,38 @@ of a key, a value, and a timestamp. In Kafka the communication between the clien
 - Each message gets stored into partitions with an incremental id known as its Offset value.
 - The order of the offset value is guaranteed within the partition only and not across the partition.
 - A partition has an infinite number of offsets. 
-- The offset value always remains in an incremental state, it never goes back to an empty space. Also, the data is kept in a partition for a limited time only.
+- The offset value always remains in an incremental state, it never goes back to an empty space. Also, the data is kept in a partition for a limited time only. This limited time
+is a called a **configurable retention period**. For example, if the retention policy is set to two days, then for the two days after a record is published, it is available for consumption, after which it will be discarded to free up space. Kafka's performance is effectively constant with respect to data size so storing data for a long time is not a problem. In fact, the only metadata retained on a per-consumer basis is the offset or position of that consumer in the log. 
+
+#### 3 - Brockers : 
+- A Broker is a Kafka server that runs in a Kafka Cluster.
+- A broker is a container that holds several topics with their multiple partitions. 
+- The brokers in the cluster are identified by an integer id only. 
+- Kafka brokers are also known as Bootstrap brokers because connection with any one broker means connection with the entire cluster. 
+- A broker does not contain whole data, but each broker in the cluster knows about all other brokers, partitions as well as topics.
+<p align="center">
+  <img width="460" height="300" src="Imgs/kafka-brocker.PNG">
+</p>
+
+#### 4 - Replication across partitions : 
+- Kafka enablesa feature of replication to secure data loss even when a broker fails down. 
+- The replication factor is always greater than 1. 
+- Each partition has one server which acts as the "leader" and zero or more servers which act as "followers". 
+- The leader handles all read and write requests for the partition while the followers passively replicate the leader. 
+- If the leader fails, one of the followers will automatically become the new leader. 
+- Each server acts as a leader for some of its partitions and a follower for others so load is well balanced within the cluster.
+- Let take the example below : 
+<p align="center">
+  <img width="460" height="300" src="Imgs/partition-replica.PNG">
+</p>
+There are 3 brokers in the kafka cluster and only one topic, each brocker contains a number of partitions of the same topic. the red partitions are leaders and the blue one are
+followers. When a client writes something to a topic at a position for which Partition in Broker 0 is the leader, this data is then replicated across the brokers/nodes so that message remains safe. Find [here](https://bravenewgeek.com/tag/leader-election/) more details about data replication.
+
+#### 5 - Confusion in the presence of replica : 
+- Cluster may confuse that which broker should save the client request.
+- To remove this confusion, one of the broker's partition should be a leader and the rest of them becomes its followers.
+- One broker will have only one leader per topic so one broker can have multiple leaders from different topics.
+- Followers are allowed to synchronize the data but none of them is allowed to save the request of the client.
 
 
 ### Apache Kafka Architecture : 
@@ -84,3 +115,5 @@ Many users of Connect won't need to use this API directly, though, they can use 
 	<version>2.0.0</version>
 </dependency>
 ```
+
+
