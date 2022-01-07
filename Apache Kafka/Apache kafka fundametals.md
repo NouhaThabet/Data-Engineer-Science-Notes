@@ -118,11 +118,6 @@ batch before sending. Note that it’s the entire batch that’s compressed, not
   <img width="660" height="500" src="Imgs/Kafka-architecture.png">
 </p>
 Apache ZooKeeper is an open source that helps build distributed applications. It’s a centralized service for maintaining configuration information. It holds responsibilities like:
-- Broker state : maintains list of active brokers and which cluster they are part of.
-- Topics configured : maintains list of all topics, number of partitions for each topic, location of all replicas, who is the preferred leader, list of ISR for partitions.
-- Controller election : selects a new controller whenever a node shuts down. Also, makes sure that there is only one controller at any given time.
-- ACL info : maintains Access control lists (ACLs) for all the topics.
-- Cluster membership : Joining a cluster and maintaining membership in a cluster. If a broker becomes unavailable, ZooKeeper removes the broker from cluster membership.
 
 
 ### Apache Kafka APIs
