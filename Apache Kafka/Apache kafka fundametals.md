@@ -115,7 +115,7 @@ batch before sending. Note that it’s the entire batch that’s compressed, not
 
 ### Apache Kafka Architecture : 
 <p align="center">
-  <img width="460" height="300" src="Kafka-architecture.png">
+  <img width="460" height="300" src="Imgs/Kafka-architecture.png">
 </p>
 Apache ZooKeeper is an open source that helps build distributed applications. It’s a centralized service for maintaining configuration information. It holds responsibilities like:
 - Broker state : maintains list of active brokers and which cluster they are part of
