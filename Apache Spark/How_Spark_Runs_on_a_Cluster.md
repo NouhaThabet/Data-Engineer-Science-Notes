@@ -9,7 +9,7 @@ A single computer is a machine which has :
 - Applications
 
 This machine works perfectly well for watching movies or working with spreadsheet software. The operating system of a given machine is responsible for resource managing. 
-It schedule and decide how much any application can use RAM or CPU or GPU etc. However, as many users likely experience at some point, there are somethings 
+It schedules and decides how much any application can use RAM or CPU or GPU etc. However, as many users likely experience at some point, there are somethings 
 that the computer is not powerful enough to perform. One particularly challenging area is **data processing**. 
 
 In fact, single machines do not have enough power and resources to perform computations on huge amounts of information. A cluster, or group, of computers, pools the 
