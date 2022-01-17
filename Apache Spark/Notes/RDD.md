@@ -136,7 +136,7 @@ data.foreach(f=>{
 ```
 
 ### saveAsTextFile():
-````scala
+```scala
 rdd6.saveAsTextFile("/tmp/wordCount")
 ```
 
