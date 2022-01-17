@@ -75,7 +75,7 @@ val rdd3:RDD[(String,Int)]= rdd2.map(m=>(m,1))
 
 ### filter():
 ```scala
-\\ Filtering a word which start with "a"
+//Filtering a word which start with "a"
 val rdd4 = rdd3.filter(a=> a._1.startsWith("a"))
 ```
 
