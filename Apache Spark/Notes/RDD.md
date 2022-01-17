@@ -93,8 +93,52 @@ val rdd6 = rdd5.map(a=>(a._2,a._1)).sortByKey()
 rdd6.foreach(println)
 ```
 
+RDD Actions : 
+------------
+### count():
+```scala
+\\Returns the number of records in an RDD
+println("Count : "+rdd6.count())
+```
 
+### first():
+```scala
+val firstRec = rdd6.first()
+println("First Record : "+firstRec._1 + ","+ firstRec._2)
+```
 
+### max(): 
+```scala
+val datMax = rdd6.max()
+println("Max Record : "+datMax._1 + ","+ datMax._2)
+```
+
+### reduce():
+```scala
+val totalWordCount = rdd6.reduce((a,b) => (a._1+b._1,a._2))
+println("dataReduce Record : "+totalWordCount._1)
+```
+
+### take():
+```scala
+val data3 = rdd6.take(3)
+data3.foreach(f=>{
+    println("data3 Key:"+ f._1 +", Value:"+f._2)
+})
+```
+### collect():
+Returns all data from RDD as an array. Be careful when you use this action when you are working with huge RDD with millions and billions of data as you may run out of memory on the driver.
+```scala
+val data = rdd6.collect()
+data.foreach(f=>{
+   println("Key:"+ f._1 +", Value:"+f._2)
+})
+```
+
+### saveAsTextFile():
+````scala
+rdd6.saveAsTextFile("/tmp/wordCount")
+```
 
 
 
