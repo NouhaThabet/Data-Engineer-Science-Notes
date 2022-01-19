@@ -12,3 +12,7 @@ https://blog.knoldus.com/spark-rdd-vs-dataframes/
 Spark Streaming vs Structured Streaming
 -------------------
 https://blog.knoldus.com/spark-streaming-vs-structured-streaming/
+
+Spark DAG
+-----------------
+https://databricks.com/blog/2015/06/22/understanding-your-spark-application-through-visualization.html
