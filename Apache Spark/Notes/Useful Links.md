@@ -16,3 +16,7 @@ https://blog.knoldus.com/spark-streaming-vs-structured-streaming/
 Spark DAG
 -----------------
 https://databricks.com/blog/2015/06/22/understanding-your-spark-application-through-visualization.html
+
+Uses of Underscore in Scala
+----------------
+https://dzone.com/articles/7-uses-of-underscore-in-scala
