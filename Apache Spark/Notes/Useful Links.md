@@ -17,6 +17,7 @@ Spark DAG
 -----------------
 https://databricks.com/blog/2015/06/22/understanding-your-spark-application-through-visualization.html
 
-Uses of Underscore in Scala
+Scala Programming
 ----------------
 https://dzone.com/articles/7-uses-of-underscore-in-scala
+http://sdz.tdct.org/sdz/apprenez-la-programmation-avec-scala.html
