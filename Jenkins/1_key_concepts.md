@@ -24,7 +24,7 @@ Jenkins jobs are used for :
 
 **5. Multi-branch pipeline:** is a type of pipeline that creates a set of pipeline projects according to detected branches and one SCM repository. It allows for the automatic creation of multiple branches of a project, each with its own Jenkins file. This type of pipeline is useful for projects that have multiple branches, such as a development branch, a staging branch, and a production branch. With a multi-branch pipeline, Jenkins can automatically detect changes in each branch and trigger a build for each branch. It allows for more flexibility in the build process. For example, developers can specify different build steps for each branch, such as running tests or deploying to different environments. This allows for more control over the build process and ensures that the correct steps are taken for each branch.
 
-# Jenkins Project Types Comparison
+### Jenkins Project Types Comparison
 
 | Feature | Freestyle Project | Maven Project | Pipeline | Multi-configuration Project | Multi-branch Pipeline |
 |---------|--------------------|---------------|----------|-----------------------------|-----------------------|
@@ -38,5 +38,7 @@ Jenkins jobs are used for :
 | **Build Triggers** | SCM polling, schedule, manual. | SCM polling, schedule, manual. | SCM polling, webhooks, schedule, manual. | SCM polling, schedule, manual. | SCM polling, webhooks, schedule, manual. |
 | **Plugins Required** | Minimal, depending on build steps. | Maven Integration Plugin. | Pipeline Plugin, SCM plugins. | Matrix Project Plugin. | Pipeline Plugin, Branch Source Plugin. |
 
+### What are Builds? 
+A build is an instance of a job that performs a specific task, such as building, testing, deploying, or running your code. For example, you can have a build that compiles your Java code using Maven, another build that runs unit tests using JUnit, and another build that deploys your application to a Kubernetes cluster using Help. To create a build, you need to have a job first. A job is a collection of steps that define your pipeline. 
 
 
