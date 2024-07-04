@@ -63,7 +63,38 @@ A build is an instance of a job that performs a specific task, such as building,
 
 ### Source Code Management Concept
 - SCM in Jenkins stands for source code management, which is the practice of managing and tracking changes to software code. It provides way for developers to collaborate on code and maintain a version history of their work.
-- 
+  
+1. Benefits of using SCM
+   - It allows developers to track changes made to code over time
+   - Maintain multiple versions of the codebase, and work on the same codebase simultaneously.
+   - It is used to manage the codebase, and Jenkins uses this codebase to automate the build and 
+   deployment process.
+   - It also provides a backup of previous versions of the codebase in case there is a need to 
+    revert to an earlier version.
+
+2. Incremental Update in SCM
+- Incremental Update is a technique used to update an existing copy of the codebase with changes made by other developers.
+- It only downloads the changes made to the codebase since the last update, making it faster than a Clean Checkout.
+- It is useful when you want to keep your codebase up to date with the latest changes, but you don't want to download the entire codebase every time you make a change.
+- If there are conflicts between the changes made by different developers, it can lead to errors and delays in the development process.
+
+3.Clean Checkout in SCM
+- Clean Checkout is a technique used to download an entire copy of the codebase from the source code repository.
+- It downloads all the files and directories in the codebase, including the latest version of the source code.
+- Clean Checkout is useful when you want to start working on a new project or when you need to create a new copy of the codebase.
+- It ensures that you have a complete and up to date copy of the codebase to work with.
+- However, Clean Checkout can be slower than Incremental Update since it downloads the entire codebase every time you make a change. It can also take up more disk space on your computer.
+
+4. Incremental Update or Clean Checkout
+-  If you're working on a small project with a limited number of developers, Incremental Update may be the best option for you. It's faster and more efficient.
+-  However, if you're working on a larger project with many developers, Clean Checkout may be a better choice. It ensures that everyone has the same copy of the codebase to work with, and reduces the risk of conflicts.
+
+5. Important Concept :
+- Version Control Systems (VCS) : VCS is a software tool that helps manage changes to the codebase. It tracks all changes made to the code, allowing developers to revert to previous versions if necessary. There are two types of VCS, *centralized* and *distributed*. *Centralized VCS* stores the code in a *central repository*, while *distributed VCS* allows each developer to have a *local copy of the codebase*.
+- Branching and Merging
+- Pull Requests and Code Reviews
+- Continuous Integration and Deployment
+
 
 
 
