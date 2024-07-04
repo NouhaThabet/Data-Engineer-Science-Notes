@@ -41,4 +41,31 @@ Jenkins jobs are used for :
 ### What are Builds? 
 A build is an instance of a job that performs a specific task, such as building, testing, deploying, or running your code. For example, you can have a build that compiles your Java code using Maven, another build that runs unit tests using JUnit, and another build that deploys your application to a Kubernetes cluster using Help. To create a build, you need to have a job first. A job is a collection of steps that define your pipeline. 
 
+### Builds - Demo 
+1. Create a simple job
+- create a job job-0001 which is a freestyle project
+- we create a simple shell : `echo "Hello"`
+- Jenkins store the files and the jobs in the *var/lib* directory
+- `cd /var/lib/jenkins`
+- ![image](https://github.com/NouhaThabet/Data-Engineer-Science-Notes/assets/17888203/5a68f606-752c-4285-a491-a01f867f93c3)
+- We don't find anything in the workspace because there is no job yet in the jenkins environment.
+- Once we create the job we will get a directory there with the name of the job
+- For example I will save and start building this job, I will do build now to create our first build. And as you can see it was successful build, and if I do LS again, I will find the job directory. If I do CD job 001, I will find the file of the output and if I do cat message, it's sensitive to capital case. If I do cat message as you can see here, I got the output of this file.
+2. Create a Second job that triggers the first one
+- Create a job 002
+- ![image](https://github.com/NouhaThabet/Data-Engineer-Science-Notes/assets/17888203/2d2d1e63-e3e7-498c-9684-d8269434aeb4)
+- ![image](https://github.com/NouhaThabet/Data-Engineer-Science-Notes/assets/17888203/0df9891e-b507-42fd-ac5e-218bd1bf7971)
+- ![image](https://github.com/NouhaThabet/Data-Engineer-Science-Notes/assets/17888203/53a9f113-3ecd-4b6c-9e8b-aaafee07be6e)
+- ![image](https://github.com/NouhaThabet/Data-Engineer-Science-Notes/assets/17888203/9bfe63e9-cc8d-4b79-8dff-eb0975b425ed)
+- Here we find the jobs under job 001 and it can be more than one job and can be a large network of downstream or upstream projects, according to the size of the project we working on. 
+- ![image](https://github.com/NouhaThabet/Data-Engineer-Science-Notes/assets/17888203/bed6a592-e79d-4403-9605-5deab031d9b2)
+
+
+### Source Code Management Concept
+- SCM in Jenkins stands for source code management, which is the practice of managing and tracking changes to software code. It provides way for developers to collaborate on code and maintain a version history of their work.
+- 
+
+
+
+
 
