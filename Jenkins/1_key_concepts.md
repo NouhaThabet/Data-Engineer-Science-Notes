@@ -95,6 +95,36 @@ A build is an instance of a job that performs a specific task, such as building,
 - Pull Requests and Code Reviews
 - Continuous Integration and Deployment
 
+6. Source Cde Management - Demo:
+- Create a freestyle project SCMJOB01
+- Go to the source code management to choose a code source for my job : Choose Git and put the rpository URL
+- Add the git credentials
+- The repo is linked in Jenkins
+- Build the job
+- We see in the console that the repo was cloned in /var/lib/jenkins/workspace/SCMJOB01 with is default directory for saving data for Jenkins
+- Add a simple build step in shell. echo "This line was written in Jenkins" >> Git01
+- Build Again
+- ![image](https://github.com/NouhaThabet/Data-Engineer-Science-Notes/assets/17888203/a0e9517e-29f1-4bf1-89f0-775cffb7fc18)
+- if we add something in Git01 in git we find that the updates doesn't exist in Jenkins
+- What if we want to make Jenkins automatically update the build everytime we do changes the repository files.
+- We can do this by using the web hook
+- We go to the configure section of this job
+- Add either the link or URL of this repositry
+- In the build trigger we check the gitHub hook trigger for GITScm polling
+- Save the job
+- Then we go to manage Jenkins, Configure System and go down to the gitHub section.
+- Add gitHub Server
+- ![image](https://github.com/NouhaThabet/Data-Engineer-Science-Notes/assets/17888203/8917380b-1c18-4a49-be60-a9067008a1e8)
+- We add password or key authentication code that we will get from github
+- To get the  authentication code from github we go to the setting > developer settings > Personal access tokens we will choose tokens > Tokens (classic)> Generate a new token > check all features and click on Generate token.
+- Then this is how we add the token in Jenkins
+- ![image](https://github.com/NouhaThabet/Data-Engineer-Science-Notes/assets/17888203/a6afa173-f0cd-41d2-b973-a8d80f1d12a8)
+- Then choose it from the list and test the connection
+- ![image](https://github.com/NouhaThabet/Data-Engineer-Science-Notes/assets/17888203/2f4cfd49-9b75-4354-8ecb-340027187eb3)
+- 
+
+
+
 
 
 
