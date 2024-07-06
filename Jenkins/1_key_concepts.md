@@ -121,7 +121,19 @@ A build is an instance of a job that performs a specific task, such as building,
 - ![image](https://github.com/NouhaThabet/Data-Engineer-Science-Notes/assets/17888203/a6afa173-f0cd-41d2-b973-a8d80f1d12a8)
 - Then choose it from the list and test the connection
 - ![image](https://github.com/NouhaThabet/Data-Engineer-Science-Notes/assets/17888203/2f4cfd49-9b75-4354-8ecb-340027187eb3)
-- 
+- Save everything in Jenkins
+- We go to github > Settings > Webhooks > Add a new webhook
+- Here we should add the Jenkins Link
+- ![image](https://github.com/NouhaThabet/Data-Engineer-Science-Notes/assets/17888203/ba53f307-c059-4a92-815b-f7ea4c4c9120)
+- And then add it to webhook
+- ![image](https://github.com/NouhaThabet/Data-Engineer-Science-Notes/assets/17888203/1f21f2c2-b521-40b8-81ca-e94a388da215)
+- But we are using an entire ip adress so that we will not be able to be linked to jenkins, It would be easier if we were using GCP or AWS
+- To do so we use SocketXP to forward a local IP address to this public URL by using this command. After installing SocketXP, I will click "Socket connect", then add my local IP address and hit Enter. As you can see here, I now have the public URL that I can use for my case.
+- ![image](https://github.com/NouhaThabet/Data-Engineer-Science-Notes/assets/17888203/e4ee0b66-1054-403e-802d-a0538a35fc33)
+- ![image](https://github.com/NouhaThabet/Data-Engineer-Science-Notes/assets/17888203/5a8dd8a2-ff23-4510-a55d-0e3a75929d05)
+
+
+
 
 
 
